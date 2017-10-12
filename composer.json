@@ -1,0 +1,11 @@
+{
+    "name": "mcp/hackathon",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Cverine",
+            "email": "severinelab@gmail.com"
+        }
+    ],
+    "require": {}
+}
