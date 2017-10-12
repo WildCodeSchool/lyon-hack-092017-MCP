@@ -1,0 +1,13 @@
+{
+    "name": "mcp/hackathon",
+    "type": "project",
+    "authors": [
+        {
+            "name": "mateevd",
+            "email": "mateevd@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
