@@ -14,4 +14,9 @@
     "require": {
         "guzzlehttp/guzzle": "~6.0"
     }
+            "name": "Cverine",
+            "email": "severinelab@gmail.com"
+        }
+    ],
+    "require": {}
 }
