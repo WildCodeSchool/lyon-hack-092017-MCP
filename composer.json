@@ -3,6 +3,13 @@
     "type": "project",
     "authors": [
         {
+            "name": "mateevd",
+            "email": "mateevd@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
             "name": "Cverine",
             "email": "severinelab@gmail.com"
         }
