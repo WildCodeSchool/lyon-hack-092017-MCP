@@ -1,6 +1,6 @@
 <?php
 require 'gitConnect.php';
-$key = include 'configAnonymous.php';
+$key = include 'configIgnored.php';
 $github = new \Wilder\gitConnect();
 
 $resultRepos = $github->setUrl($github->getReposDarin(), $key['DarinKey']);
