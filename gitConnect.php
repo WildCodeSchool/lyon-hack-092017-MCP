@@ -8,22 +8,14 @@
 
 namespace Wilder;
 
-
 class gitConnect
 {
 	private $userDarin = "https://api.github.com/users/mateevd";
 	private $reposDarin = "https://api.github.com/users/mateevd/repos";
+	private $followDarin = "https://api.github.com/users/mateevd/followers";
 	private $gistsDarin = "https://api.github.com/users/mateevd/gists";
-	private $tokenDarin = "f0d78dd4f954f66e362ba3dc8da62ba4f70b62a2";
+	private $tokenDarin = "10b3765514eabd851d69a61774b8d3380503663b";
 
-	private $userPierrick = "https://api.github.com/users/PiReux";
-	private $reposPierrick = "https://api.github.com/users/PiReux/repos";
-	private $gistsPierrick = "https://api.github.com/users/PiReux/gists";
-	private $tokenPierrick = "8e6148ed88c56e874187d7f48170b69a80c9631d";
-
-	/**
-	 * CurlInit constructor.
-	 */
 	public function setUrl($statement, $token)
 	{
 		$ch = curl_init();
@@ -31,7 +23,7 @@ class gitConnect
 // configuration des options
 		curl_setopt($ch, CURLOPT_URL, $statement);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_USERAGENT, "b1b85c8b34b68ff2f8d5");
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', "Authorization: Bearer $token"));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 // exécution de la session
@@ -69,41 +61,17 @@ class gitConnect
 	/**
 	 * @return string
 	 */
+	public function getFollowDarin(): string
+	{
+		return $this->followDarin;
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getTokenDarin(): string
 	{
 		return $this->tokenDarin;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getUserPierrick(): string
-	{
-		return $this->userPierrick;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getReposPierrick(): string
-	{
-		return $this->reposPierrick;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getGistsPierrick(): string
-	{
-		return $this->gistsPierrick;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getTokenPierrick(): string
-	{
-		return $this->tokenPierrick;
 	}
 
 	/**
@@ -113,4 +81,5 @@ class gitConnect
 		$json = json_decode($result, true);
 		return $json;
 	}
+
 }

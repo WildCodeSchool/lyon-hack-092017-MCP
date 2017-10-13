@@ -3,44 +3,40 @@ require 'gitConnect.php';
 
 $github = new \Wilder\gitConnect();
 
-$resultRepos = '';
-$resultUser = '';
-$resultGists = '';
-
-if ($_POST === 'Darin') {
-	$resultRepos = $github->setUrl($github->getReposDarin(), $github->getTokenDarin());
-	$resultUser = $github->setUrl($github->getUserDarin(), $github->getTokenDarin());
-	$resultGists = $github->setUrl($github->getGistsDarin(), $github->getTokenDarin());
-
-}elseif ($_POST === 'Pierrick'){
-	$resultRepos = $github->setUrl($github->getReposPierrick(), $github->getTokenPierrick());
-	$resultUser = $github->setUrl($github->getUserPierrick(), $github->getTokenPierrick());
-	$resultGists = $github->setUrl($github->getGistsPierrick(), $github->getTokenPierrick());
-}else{
-	var_dump($_POST);
-}
+$resultRepos = $github->setUrl($github->getReposDarin(), $github->getTokenDarin());
+$resultUser = $github->setUrl($github->getUserDarin(), $github->getTokenDarin());
+$resultGists = $github->setUrl($github->getGistsDarin(), $github->getTokenDarin());
+$resultFollow = $github->setUrl($github->getFollowDarin(), $github->getTokenDarin());
 
 
 $tableRepos = $github->getArray($resultRepos);
 $tableUser = $github->getArray($resultUser);
 $tableGist = $github->getArray($resultGists);
-
+$tableFollow = $github->getArray($resultFollow);
 
 foreach ($tableRepos as $key => $part) {
 	$sort[$key] = strtotime($part['pushed_at']);
 }
-array_multisort($sort, SORT_ASC, $tableRepos);
+array_multisort($sort, SORT_DESC, $tableRepos);
 
 foreach ($tableRepos as $repos){
 	echo $repos ['pushed_at'] . PHP_EOL;
+	echo $repos ['name'];
 }
 
 foreach ($tableRepos as $repos){
 	echo $repos ['id'] . PHP_EOL;
 }
 
-//print_r($tableUser['login'] . PHP_EOL);
-//print_r($tableRepos);
+foreach ($tableFollow as $follow){
+	echo $follow ['followers_url'] . PHP_EOL;
+}
+
+print_r($tableUser['login'] . PHP_EOL);
+print_r($tableRepos . PHP_EOL);
+print_r($tableFollow);
+
+
 ?>
 
 !<!doctype html>
@@ -65,7 +61,8 @@ foreach ($tableRepos as $repos){
 					<span class="card-title center"><a href="https://github.com/mateevd" target="_blank"><?php print_r($tableUser['login']) ?></a></span>
 					<img src="<?php print_r ($tableUser['avatar_url']) ?>">
 				</div>
-				<form method="post" role="form">
+				<!--
+				<form method="post">
 					<button class="btn waves-effect waves-light" type="submit" id="Darin" name="Darin" value="Darin">Darin
 						<i class="material-icons right"></i>
 					</button>
@@ -75,16 +72,14 @@ foreach ($tableRepos as $repos){
 					<button class="btn waves-effect waves-light" type="submit" name="action" value="Severine">Severine
 						<i class="material-icons right"></i>
 					</button>
-				</form>
+				</form>-->
 				<div class="card-action">
-					<a href="<?php print_r($tableRepos[0]['html_url']); ?>" target="_blank"><?php print_r($tableRepos[0]['name']); ?></a>
+					<a href="<?php print_r($tableFollow['followers_url']); ?>" target="_blank">Followers - <?php print_r($tableFollow = count($tableFollow)); ?></a>
 
-						<a href="<?php print_r($tableRepos['owner']['repos_url']); ?>" target="_blank">Repos - <?php print_r($tableRepos = count($tableRepos)); ?></a>
+						<a href="<?php print_r($tableRepos['repos_url']); ?>" target="_blank">Repos - <?php print_r($tableRepos = count($tableRepos)); ?></a>
 
 					<a href="<?php print_r($tableGist['gists_url']); ?>" target="_blank">Gists - <?php print_r($tableGist = count($tableGist)); ?></a>
 				</div>
-			<button class="btn waves-effect waves-light" type="submit" name="action">Submit
-			</button>
 			</div>
 		</div>
 	</div>
