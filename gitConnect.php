@@ -14,7 +14,6 @@ class gitConnect
 	private $reposDarin = "https://api.github.com/users/mateevd/repos";
 	private $followDarin = "https://api.github.com/users/mateevd/followers";
 	private $gistsDarin = "https://api.github.com/users/mateevd/gists";
-	private $tokenDarin = "10b3765514eabd851d69a61774b8d3380503663b";
 
 	public function setUrl($statement, $token)
 	{

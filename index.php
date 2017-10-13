@@ -1,12 +1,12 @@
 <?php
 require 'gitConnect.php';
-
+$key = include 'configAnonymous.php';
 $github = new \Wilder\gitConnect();
 
-$resultRepos = $github->setUrl($github->getReposDarin(), $github->getTokenDarin());
-$resultUser = $github->setUrl($github->getUserDarin(), $github->getTokenDarin());
-$resultGists = $github->setUrl($github->getGistsDarin(), $github->getTokenDarin());
-$resultFollow = $github->setUrl($github->getFollowDarin(), $github->getTokenDarin());
+$resultRepos = $github->setUrl($github->getReposDarin(), $key['DarinKey']);
+$resultUser = $github->setUrl($github->getUserDarin(), $key['DarinKey']);
+$resultGists = $github->setUrl($github->getGistsDarin(), $key['DarinKey']);
+$resultFollow = $github->setUrl($github->getFollowDarin(), $key['DarinKey']);
 
 
 $tableRepos = $github->getArray($resultRepos);
