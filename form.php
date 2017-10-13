@@ -15,8 +15,6 @@
 </header>
 <body>
 
-<form>
-
     <!--Choice of fonction -->
     <div class="container">
         <div class="row">
@@ -38,7 +36,7 @@
         </button>
         </div>
 </form><!--end of contact form -->
-
+</div>
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
