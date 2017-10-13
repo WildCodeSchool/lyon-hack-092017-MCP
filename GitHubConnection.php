@@ -14,7 +14,7 @@ class GitHubConnection
 
 // configuration des options
         curl_setopt($ch, CURLOPT_URL, $statement);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', "Authorization: Bearer 8e6148ed88c56e874187d7f48170b69a80c9631d"));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', "Authorization: Bearer 564e5288d7cd734ff80a98fb99fa191655c6e74e"));
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_USERAGENT, "Unknown");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

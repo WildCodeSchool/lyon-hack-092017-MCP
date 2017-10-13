@@ -1,9 +1,10 @@
 <?php
-require "vendor/autoload.php";
 require "GitHubConnection.php";
 
 
 $github = new \Wilder\GitHubConnection();
+
+
 $resultRepos = $github->setUrl($github::URLREPOS);
 $resultUrl = $github->setUrl($github::URL);
 $tableauGitRepos = $github->jsonToArray($resultRepos);
