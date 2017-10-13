@@ -20,6 +20,7 @@ class GitHubConnection
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 // exécution de la session
         $result = curl_exec($ch);
+        $result = json_decode($result, true);
 // fermeture des ressources
         curl_close($ch);
         return $result;
@@ -28,9 +29,4 @@ class GitHubConnection
     /**
      * @return mixed
      */
-    public function jsonToArray($resultat)
-    {
-        $toArray = json_decode($resultat, true);
-        return $toArray;
-    }
 }
