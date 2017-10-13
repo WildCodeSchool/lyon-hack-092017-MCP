@@ -1,0 +1,21 @@
+{
+    "name": "mcp/hackathon",
+    "type": "project",
+    "authors": [
+        {
+            "name": "mateevd",
+            "email": "mateevd@gmail.com"
+        },
+        {
+            "name": "Cverine",
+            "email": "severinelab@gmail.com"
+        },
+        {
+            "name": "PiReux",
+            "email": "pierrick.reux@gmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
